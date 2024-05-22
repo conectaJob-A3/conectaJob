@@ -1,20 +1,36 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+import LoginPage from './LoginPage'
+import RegisterPage from './RegisterPage'
+import FeedPage from './FeedPage'
+import ProfilePage from './ProfilePage'
 
-export default function App() {
+const Stack = createStackNavigator()
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="LoginPage"
+        screenOptions={{
+          headerShown: true, //? Set false to hide header, must ajust style of pages.
+          gestureEnabled: false,
+          headerTitle: 'conectaJob',
+          headerTitleStyle: {
+            color: '#FFC300'
+          },
+          headerStyle: { backgroundColor: '#000814' }
+          // ,headerLeft: true //? Set false to hide backButton.
+        }}
+      >
+        <Stack.Screen name="LoginPage" component={LoginPage} />
+        <Stack.Screen name="RegisterPage" component={RegisterPage} />
+        <Stack.Screen name="FeedPage" component={FeedPage} />
+        <Stack.Screen name="ProfilePage" component={ProfilePage} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App
