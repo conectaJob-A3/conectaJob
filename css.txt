@@ -1,20 +1,4 @@
-/* Color Theme Swatches in Hex */
-.New-Frontiers-1-hex { color: #BFBFAA; }
-.New-Frontiers-2-hex { color: #BF8845; }
-.New-Frontiers-3-hex { color: #8C582A; }
-.New-Frontiers-4-hex { color: #26110F; }
-.New-Frontiers-5-hex { color: #0D0D0D; }
-
-/* Color Theme Swatches in RGBA */
-.New-Frontiers-1-rgba { color: rgba(190, 191, 170, 1); }
-.New-Frontiers-2-rgba { color: rgba(191, 136, 68, 1); }
-.New-Frontiers-3-rgba { color: rgba(140, 87, 42, 1); }
-.New-Frontiers-4-rgba { color: rgba(38, 16, 14, 1); }
-.New-Frontiers-5-rgba { color: rgba(12, 12, 12, 1); }
-
-/* Color Theme Swatches in HSLA */
-.New-Frontiers-1-hsla { color: hsla(61, 14, 70, 1); }
-.New-Frontiers-2-hsla { color: hsla(33, 48, 51, 1); }
-.New-Frontiers-3-hsla { color: hsla(28, 53, 35, 1); }
-.New-Frontiers-4-hsla { color: hsla(5, 44, 10, 1); }
-.New-Frontiers-5-hsla { color: hsla(0, 0, 5, 1); }
+#303841
+#3A4750
+#00ADB5
+#EEEEEE
