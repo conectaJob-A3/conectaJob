@@ -50,14 +50,22 @@ const RegisterPage = ({ navigation }) => {
     formData.append('pcd', pcd)
 
     try {
-      const response = await axios.post('YOUR_BACKEND_ROUTE_HERE', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
+      const response = await axios.post(
+        `${process.env.BACKEND_URL_GATEWAY}/auth/register`,
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
         }
-      })
+      )
       navigation.navigate('FeedPage')
     } catch (error) {
-      console.error(error.response.data)
+      console.error(error)
+      Alert.alert(
+        'Register Failed',
+        error.response.data.message || 'An unknown error occurred.'
+      )
     }
   }
 

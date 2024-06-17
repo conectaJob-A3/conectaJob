@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, TextInput, Button, StyleSheet, Image } from 'react-native'
+import { View, TextInput, Button, StyleSheet, Image, Alert } from 'react-native'
 import axios from 'axios'
 
 const LoginPage = ({ navigation }) => {
@@ -8,18 +8,29 @@ const LoginPage = ({ navigation }) => {
 
   const handleSubmit = async () => {
     const formData = new FormData()
-    formData.append('email', email)
+    formData.append('username', email)
     formData.append('password', password)
 
     try {
-      // const response = await axios.post('YOUR_BACKEND_ROUTE_HERE', formData, {
-      //   headers: {
-      //     'Content-Type': 'multipart/form-data'
-      //   }
-      // })
+      const params = { username: email, password: password }
+      console.log(params)
+
+      const response = await axios.post(
+        `${process.env.BACKEND_URL_GATEWAY}/auth/login`,
+        params,
+        {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      )
       navigation.navigate('FeedPage')
     } catch (error) {
-      console.error(error.response.data)
+      console.error(error)
+      Alert.alert(
+        'Login Failed',
+        error.response.data.message || 'An unknown error occurred.'
+      )
     }
   }
 
